@@ -1,29 +1,51 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blogcontroller;
-
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-// route ::get('/blog', function (){
-//     // ambil data dari database
-//     $profile = 'aku anak rpl';
-//     return view ('blog',['data' => $profile]);
-// })->name('blog');
-
-route::get('/blog', [Blogcontroller::class, 'index']);
-
-// route::view('/blog','blog', ['data' => 'sholeh']);
-
-
-route::get('/blog/{id}', function (request $request) {
-    // $name = $request->name;
-    // $password = $request->password;
-    // anggap aja melakukan update data
-    return redirect()->router('blog');
-    // return 'ini adalah blog '.$request->id;
+ 
+Route::get('/blog', function () {
+    return view ('blog' , ['data' => 'test 123']);
 });
+
+Route::view('/blog', 'blog' , ['data' => 'mari belajar']);
+
+// Route::get('/blog/1', function () {
+//     return 'blog1';
+// });
+
+// Route::get('/blog/2', function () {
+//     return 'blog2';
+// });
+
+Route::get('/blog/{id}', function ($id) {
+    return 'blog '.$id;
+});
+
+// Route::get('/blog/{id}', function (Request $request) {
+//     $name = $request->name;
+//     $password = $request->password;
+//     return 'blog '.$request->id;
+// });
+
+Route::get('/blog/{title}', function (Request $request) {
+    $name = $request->name;
+    $password = $request->password;
+    return 'blog '.$request->title;
+})->name('whatever');
+
+// Route::get('/blog/', function () {
+//     $profile = 'mari kita belajar';
+//     return view('blog', ['data' => $profile]);
+// });
+
+Route::get('/blog/{title}', function (Request $request) {
+    return redirect()->route('blog');
+    // return 'blog '.$request->title;
+});
+
+Route::get('/blog', [BlogController::class, 'index']);

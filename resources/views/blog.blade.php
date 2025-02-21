@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1,0">
-        <title>Blog page</title>    
-<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog page</title>
+</head>
 <body>
-    <h1>ini adalah blog {{$data}}</H1>
-<body>            
+    <h1>hallo semua {{$data}}</h1>
+</body>
 </html>
